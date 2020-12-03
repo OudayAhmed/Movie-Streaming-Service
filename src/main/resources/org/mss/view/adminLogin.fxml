@@ -1,0 +1,759 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.mss.controller.admin.AdminController">
+   <children>
+      <TabPane layoutY="-3.0" prefHeight="723.0" prefWidth="1281.0" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab text="My Account">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="NameField" alignment="CENTER" layoutX="626.0" layoutY="161.0" prefHeight="42.0" prefWidth="253.0" promptText="Name">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="398.0" layoutY="164.0" prefHeight="37.0" prefWidth="113.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DateOfBirthField" alignment="CENTER" layoutX="625.0" layoutY="210.0" prefHeight="42.0" prefWidth="253.0" promptText="YYYY-MM-DD">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="389.0" layoutY="211.0" prefHeight="37.0" prefWidth="139.0" text="Date of birth">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PhoneNumberField" alignment="CENTER" layoutX="625.0" layoutY="263.0" prefHeight="42.0" prefWidth="253.0" promptText="Phone number">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="384.0" layoutY="265.0" prefHeight="37.0" prefWidth="156.0" text="Phone number">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="AddressField" alignment="CENTER" layoutX="624.0" layoutY="318.0" prefHeight="42.0" prefWidth="253.0" promptText="Address">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="321.0" prefHeight="37.0" prefWidth="113.0" text="Address">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="EmailField" alignment="CENTER" layoutX="623.0" layoutY="371.0" prefHeight="42.0" prefWidth="253.0" promptText="Email">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="395.0" layoutY="374.0" prefHeight="37.0" prefWidth="113.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="424.0" prefHeight="37.0" prefWidth="113.0" text="Password">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="LogoutButton" layoutX="733.0" layoutY="546.0" onAction="#Logout" text="Logout">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="UpdateButton" layoutX="562.0" layoutY="546.0" onAction="#updateAccountDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="LoadButton" layoutX="419.0" layoutY="545.0" onAction="#loadAccountDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="PasswordField" alignment="CENTER" layoutX="622.0" layoutY="423.0" prefHeight="42.0" prefWidth="253.0" promptText="Password">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="396.0" layoutY="478.0" prefHeight="37.0" prefWidth="113.0" text="Position">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PositionField" alignment="CENTER" layoutX="621.0" layoutY="477.0" prefHeight="42.0" prefWidth="253.0" promptText="Position">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="MediaTab" text="Media">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="MediaTable" layoutX="2.0" layoutY="-6.0" onMouseClicked="#getMovieDetailsSelectedRow" prefHeight="270.0" prefWidth="1281.0">
+                           <columns>
+                              <TableColumn fx:id="IDMediaColumn" prefWidth="75.0" text="ID" />
+                              <TableColumn fx:id="TitleMediaColumn" prefWidth="75.0" text="Title" />
+                              <TableColumn fx:id="YearMediaColumn" prefWidth="75.0" text="Year" />
+                              <TableColumn fx:id="CountryMediaColumn" prefWidth="75.0" text="Country" />
+                              <TableColumn fx:id="LengthMediaColumn" prefWidth="75.0" text="Length" />
+                              <TableColumn fx:id="DirectorsMediaColumn" prefWidth="75.0" text="Directors" />
+                              <TableColumn fx:id="ActorsMediaColumn" prefWidth="75.0" text="Actors" />
+                              <TableColumn fx:id="GenresMediaColumn" prefWidth="75.0" text="Genres" />
+                              <TableColumn fx:id="RatingMediaColumn" prefWidth="75.0" text="Rating" />
+                              <TableColumn fx:id="ColorMediaColumn" prefWidth="75.0" text="Color" />
+                              <TableColumn fx:id="BwMediaColumn" prefWidth="75.0" text="Bw" />
+                              <TableColumn fx:id="OriginalMediaColumn" prefWidth="66.4000244140625" text="Original" />
+                              <TableColumn fx:id="MovieSequelIDMediaColumn" prefWidth="116.7998046875" text="Movie Sequel ID" />
+                              <TableColumn fx:id="MoviePrequelIDMediaColumn" prefWidth="129.3333740234375" text="Movie Prequel ID" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <JFXButton fx:id="AddMediaButton" layoutX="485.0" layoutY="460.0" onAction="#addMovieDetails" text="Add">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="RemoveMediaButton" layoutX="668.0" layoutY="637.0" onAction="#removeMovieDetails" text="Remove">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="TitleMediaField" alignment="CENTER" layoutX="172.0" layoutY="272.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="12.0" layoutY="277.0" prefHeight="29.0" prefWidth="145.0" text="Title" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="11.0" layoutY="324.0" prefHeight="29.0" prefWidth="145.0" text="Year" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="YearMediaField" alignment="CENTER" layoutX="171.0" layoutY="317.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="13.0" layoutY="368.0" prefHeight="29.0" prefWidth="145.0" text="Country" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="CountryMediaField" alignment="CENTER" layoutX="172.0" layoutY="362.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="GenresMediaField" alignment="CENTER" layoutX="173.0" layoutY="544.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="14.0" layoutY="553.0" prefHeight="29.0" prefWidth="145.0" text="Genres" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="LengthMediaField" alignment="CENTER" layoutX="172.0" layoutY="407.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="17.0" layoutY="410.0" prefHeight="29.0" prefWidth="145.0" text="Length" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="458.0" prefHeight="29.0" prefWidth="145.0" text="Directors" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DirectorsMediaField" alignment="CENTER" layoutX="172.0" layoutY="452.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="503.0" prefHeight="29.0" prefWidth="145.0" text="Actors" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ActorsMediaField" alignment="CENTER" layoutX="172.0" layoutY="498.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="RatingMediaField" alignment="CENTER" layoutX="172.0" layoutY="590.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="15.0" layoutY="597.0" prefHeight="29.0" prefWidth="145.0" text="Rating" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ColorMediaField" alignment="CENTER" layoutX="173.0" layoutY="639.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="16.0" layoutY="646.0" prefHeight="29.0" prefWidth="145.0" text="Color" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="BwMediaField" alignment="CENTER" layoutX="617.0" layoutY="269.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="450.0" layoutY="271.0" prefHeight="29.0" prefWidth="145.0" text="Bw" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="449.0" layoutY="321.0" prefHeight="29.0" prefWidth="145.0" text="Original" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="OriginalMediaField" alignment="CENTER" layoutX="616.0" layoutY="314.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="440.0" layoutY="366.0" prefHeight="29.0" prefWidth="168.0" text="Movie Sequel ID" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="MovieSequelIDMediaField" alignment="CENTER" layoutX="617.0" layoutY="359.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="MoviePrequelIDMediaField" alignment="CENTER" layoutX="617.0" layoutY="404.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="439.0" layoutY="407.0" prefHeight="29.0" prefWidth="162.0" text="Movie Prequel ID" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="UpdateMediaButton" layoutX="675.0" layoutY="463.0" onAction="#updateMovieDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="TitleRemoveField" alignment="CENTER" layoutX="616.0" layoutY="540.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="456.0" layoutY="545.0" prefHeight="29.0" prefWidth="145.0" text="Title" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="455.0" layoutY="592.0" prefHeight="29.0" prefWidth="145.0" text="Year" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="YearRemoveField" alignment="CENTER" layoutX="615.0" layoutY="585.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Separator layoutX="431.0" layoutY="519.0" prefHeight="7.0" prefWidth="438.0" />
+                        <Separator layoutX="871.0" layoutY="264.0" orientation="VERTICAL" prefHeight="431.0" prefWidth="5.0" />
+                        <TextField fx:id="TitleSearchField" alignment="CENTER" layoutX="1036.0" layoutY="269.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="876.0" layoutY="274.0" prefHeight="29.0" prefWidth="145.0" text="Title" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="875.0" layoutY="321.0" prefHeight="29.0" prefWidth="145.0" text="Year" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="YearSearchField" alignment="CENTER" layoutX="1035.0" layoutY="314.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="877.0" layoutY="365.0" prefHeight="29.0" prefWidth="145.0" text="Country" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="CountrySearchField" alignment="CENTER" layoutX="1036.0" layoutY="359.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="GenresSearchField" alignment="CENTER" layoutX="1037.0" layoutY="541.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="878.0" layoutY="550.0" prefHeight="29.0" prefWidth="145.0" text="Genres" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="LengthSearchField" alignment="CENTER" layoutX="1036.0" layoutY="404.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="881.0" layoutY="407.0" prefHeight="29.0" prefWidth="145.0" text="Length" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="880.0" layoutY="455.0" prefHeight="29.0" prefWidth="145.0" text="Directors" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DirectorsSearchField" alignment="CENTER" layoutX="1036.0" layoutY="449.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="880.0" layoutY="500.0" prefHeight="29.0" prefWidth="145.0" text="Actors" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="ActorsSearchField" alignment="CENTER" layoutX="1036.0" layoutY="495.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="RatingSearchField" alignment="CENTER" layoutX="1036.0" layoutY="587.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="879.0" layoutY="594.0" prefHeight="29.0" prefWidth="145.0" text="Rating" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <JFXButton fx:id="SearchMediaButton" layoutX="1107.0" layoutY="636.0" onAction="#getMovieDetailsAccordingToFilters" text="Search">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="LoadMediaButton" layoutX="486.0" layoutY="634.0" onAction="#loadMovieDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="DirectorsTab" text="Directors">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="DirectorsTable" layoutX="2.0" layoutY="-6.0" onMouseClicked="#getDirectorDetailsSelectedRow" prefHeight="351.0" prefWidth="1281.0">
+                           <columns>
+                              <TableColumn fx:id="NameDirectorsColumn" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="EmailDirectorsColumn" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="PhoneNumberDirectorsColumn" prefWidth="75.0" text="Phone Number" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="NameDirectorsField" alignment="CENTER" layoutX="600.0" layoutY="400.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="447.0" layoutY="404.0" prefHeight="29.0" prefWidth="145.0" text="Name" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="446.0" layoutY="458.0" prefHeight="29.0" prefWidth="145.0" text="Email" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="EmailDirectorsField" alignment="CENTER" layoutX="599.0" layoutY="453.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="443.0" layoutY="508.0" prefHeight="29.0" prefWidth="145.0" text="Phone Number" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PhoneNumberDirectorsField" alignment="CENTER" layoutX="600.0" layoutY="503.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton fx:id="LoadDirectorsButton" layoutX="788.0" layoutY="604.0" onAction="#loadDirectorsDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="AddDirectorsButton" layoutX="442.0" layoutY="603.0" onAction="#addDirectorsDetails" text="Add">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="RemoveDirectorsButton" layoutX="533.0" layoutY="604.0" onAction="#removeDirectorsDetails" text="Remove">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="UpdateDirectorsButton" layoutX="659.0" layoutY="604.0" onAction="#updateDirectorsDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="ActorsTab" text="Actors">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="ActorsTable" layoutX="2.0" layoutY="-6.0" onMouseClicked="#getActorDetailsSelectedRow" prefHeight="351.0" prefWidth="1281.0">
+                           <columns>
+                              <TableColumn fx:id="NameActorsColumn" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="EmailActorsColumn" prefWidth="75.0" text="Email" />
+                              <TableColumn fx:id="PhoneNumberActorsColumn" prefWidth="75.0" text="Phone Number" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <TextField fx:id="NameActorsField" alignment="CENTER" layoutX="588.0" layoutY="400.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="435.0" layoutY="404.0" prefHeight="29.0" prefWidth="145.0" text="Name" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" layoutX="434.0" layoutY="458.0" prefHeight="29.0" prefWidth="145.0" text="Email" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="EmailActorsField" alignment="CENTER" layoutX="587.0" layoutY="453.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" layoutX="431.0" layoutY="508.0" prefHeight="29.0" prefWidth="145.0" text="Phone Number" textAlignment="CENTER">
+                           <font>
+                              <Font name="System Bold" size="19.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PhoneNumberActorsField" alignment="CENTER" layoutX="588.0" layoutY="503.0">
+                           <font>
+                              <Font name="System Italic" size="19.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton fx:id="LoadActorsButton" layoutX="776.0" layoutY="604.0" onAction="#loadActorsDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="AddActorsButton" layoutX="430.0" layoutY="603.0" onAction="#addActorsDetails" text="Add">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="RemoveActorsButton" layoutX="521.0" layoutY="604.0" onAction="#removeActorsDetails" text="Remove">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="UpdateActorsButton" layoutX="647.0" layoutY="604.0" onAction="#updateActorsDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="CustomersTab" text="Customers">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="CustomersTable" layoutY="-6.0" onMouseClicked="#getCustomerDetailsSelectedRow" prefHeight="255.0" prefWidth="1281.0">
+                           <columns>
+                              <TableColumn fx:id="NameCustomersColumn" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="DateofBirthCustomersColumn" prefWidth="117.86666107177734" text="Date of Birth" />
+                              <TableColumn fx:id="PhoneNumberCustomersColumn" prefWidth="117.86666107177734" text="Phone Number" />
+                              <TableColumn fx:id="AddressCustomersColumn" prefWidth="117.86666107177734" text="Address" />
+                              <TableColumn fx:id="EmailCustomersColumn" prefWidth="117.86666107177734" text="Email" />
+                              <TableColumn fx:id="PasswordCustomersColumn" prefWidth="117.86666107177734" text="Password" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <JFXButton fx:id="LoadCustomersButton" layoutX="765.0" layoutY="610.0" onAction="#loadCustomersDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="NameCustomersField" alignment="CENTER" layoutX="615.0" layoutY="277.0" prefHeight="42.0" prefWidth="253.0" promptText="Name">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="426.0" layoutY="276.0" prefHeight="37.0" prefWidth="113.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DateofBirthCustomersField" alignment="CENTER" layoutX="616.0" layoutY="331.0" prefHeight="42.0" prefWidth="253.0" promptText="YYYY-MM-DD">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="408.0" layoutY="330.0" prefHeight="37.0" prefWidth="139.0" text="Date of birth">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PhoneNumberCustomersField" alignment="CENTER" layoutX="616.0" layoutY="384.0" prefHeight="42.0" prefWidth="253.0" promptText="Phone number">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="403.0" layoutY="386.0" prefHeight="37.0" prefWidth="156.0" text="Phone number">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="AddressCustomersField" alignment="CENTER" layoutX="616.0" layoutY="436.0" prefHeight="42.0" prefWidth="253.0" promptText="Address">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="418.0" layoutY="436.0" prefHeight="37.0" prefWidth="113.0" text="Address">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="EmailCustomersField" alignment="CENTER" layoutX="616.0" layoutY="487.0" prefHeight="42.0" prefWidth="253.0" promptText="Email">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="417.0" layoutY="488.0" prefHeight="37.0" prefWidth="113.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="422.0" layoutY="538.0" prefHeight="37.0" prefWidth="113.0" text="Password">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PasswordCustomersField" alignment="CENTER" layoutX="616.0" layoutY="537.0" prefHeight="42.0" prefWidth="253.0" promptText="Password">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton fx:id="AddCustomersButton" layoutX="434.0" layoutY="611.0" onAction="#addCustomerDetails" text="Add">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="RemoveCustomersButton" layoutX="525.0" layoutY="610.0" onAction="#removeCustomerDetails" text="Remove">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="UpdateCustomersButton" layoutX="647.0" layoutY="611.0" onAction="#updateCustomerDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="UserProfilesTab" text="User Profiles">
+               <content>
+                  <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <TableView fx:id="UserProfilesTable" layoutY="-6.0" onMouseClicked="#getUserDetailsSelectedRow" prefHeight="255.0" prefWidth="1281.0">
+                           <columns>
+                              <TableColumn fx:id="NameUserProfilesColumn" prefWidth="75.0" text="Name" />
+                              <TableColumn fx:id="DateofBirthUserProfilesColumn" prefWidth="117.86666107177734" text="Date of Birth" />
+                              <TableColumn fx:id="PhoneNumberUserProfilesColumn" prefWidth="117.86666107177734" text="Phone Number" />
+                              <TableColumn fx:id="AddressUserProfilesColumn" prefWidth="117.86666107177734" text="Address" />
+                              <TableColumn fx:id="EmailUserProfilesColumn" prefWidth="117.86666107177734" text="Email" />
+                              <TableColumn fx:id="PasswordUserProfilesColumn" prefWidth="117.86666107177734" text="Password" />
+                           </columns>
+                           <columnResizePolicy>
+                              <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                           </columnResizePolicy>
+                        </TableView>
+                        <JFXButton fx:id="LoadUserProfilesButton" layoutX="740.0" layoutY="638.0" onAction="#loadUserProfilesDetails" text="Load">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="NameUserProfilesField" alignment="CENTER" layoutX="590.0" layoutY="255.0" prefHeight="42.0" prefWidth="253.0" promptText="Name">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="401.0" layoutY="254.0" prefHeight="37.0" prefWidth="113.0" text="Name">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="DateofBirthUserProfilesField" alignment="CENTER" layoutX="591.0" layoutY="302.0" prefHeight="42.0" prefWidth="253.0" promptText="YYYY-MM-DD">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="383.0" layoutY="301.0" prefHeight="37.0" prefWidth="139.0" text="Date of birth">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PhoneNumberUserProfilesField" alignment="CENTER" layoutX="591.0" layoutY="348.0" prefHeight="42.0" prefWidth="253.0" promptText="Phone number">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="378.0" layoutY="350.0" prefHeight="37.0" prefWidth="156.0" text="Phone number">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="AddressUserProfilesField" alignment="CENTER" layoutX="591.0" layoutY="394.0" prefHeight="42.0" prefWidth="253.0" promptText="Address">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="393.0" layoutY="394.0" prefHeight="37.0" prefWidth="113.0" text="Address">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="EmailUserProfilesField" alignment="CENTER" layoutX="591.0" layoutY="442.0" prefHeight="42.0" prefWidth="253.0" promptText="Email">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="392.0" layoutY="443.0" prefHeight="37.0" prefWidth="113.0" text="Email">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="397.0" layoutY="491.0" prefHeight="37.0" prefWidth="113.0" text="Password">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="PasswordUserProfilesField" alignment="CENTER" layoutX="591.0" layoutY="490.0" prefHeight="42.0" prefWidth="253.0" promptText="Password">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <JFXButton fx:id="AddUserProfilesButton" layoutX="409.0" layoutY="639.0" onAction="#addUserProfileDetails" text="Add">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="RemoveUserProfilesButton" layoutX="499.0" layoutY="638.0" onAction="#removeUserDetails" text="Remove">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton fx:id="UpdateUserProfilesButton" layoutX="628.0" layoutY="637.0" onAction="#updateUserDetails" text="Update">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </JFXButton>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="351.0" layoutY="536.0" prefHeight="37.0" prefWidth="217.0" text="Customer's Name">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <Label alignment="CENTER" contentDisplay="CENTER" layoutX="355.0" layoutY="583.0" prefHeight="37.0" prefWidth="217.0" text="Customer's Email">
+                           <font>
+                              <Font name="System Bold" size="21.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="CustomerNameUserProfilesField" alignment="CENTER" layoutX="592.0" layoutY="536.0" prefHeight="42.0" prefWidth="253.0" promptText="Customer's Name">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                        <TextField fx:id="CustomerEmailUserProfilesField" alignment="CENTER" layoutX="592.0" layoutY="582.0" prefHeight="42.0" prefWidth="253.0" promptText="Customer's Email">
+                           <font>
+                              <Font size="19.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+   </children>
+</Pane>
